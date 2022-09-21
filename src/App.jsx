@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
+import reactLogo from './assets/favicon.svg';
 import './App.css';
 
 import { Routes, Route } from 'react-router-dom';
@@ -10,6 +10,7 @@ import BookDetails from './components/BookDetails';
 import Favourites from './components/Favourites';
 
 function App() {
+
   return (
     <div className="App">
       <Navbar />

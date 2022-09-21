@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const [input, setInput] = useState('');
+
   return (
     <div className="navbar">
+      <Link to="/">
+        <div className="title">
+          <img src="../public/favicon.svg" alt="Logo" />
+          <h1>Books Books Books</h1>
+        </div>
+      </Link>
       <div>
-        <h1>React Books App</h1>
+        <input
+          type="text"
+          placeholder="Search for a book..."
+          onChange={(e) => setInput(e.target.value)}
+        />
       </div>
       <div>
         <Link to="/favourites">

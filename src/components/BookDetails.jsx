@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../App';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 import { BOOK_DETAILS_URL } from '../API';
 
 const BookDetails = () => {
@@ -15,20 +17,25 @@ const BookDetails = () => {
     });
   }, [id]);
 
-  return <div className="book-details">
-    <div className='book-image'>
-      <h2>{book?.title}</h2>
-      <img src={book?.image_url} alt={book?.title}/>
+  return (
+    <div className="book-details">
+      <div className="book-image">
+        <h2>{book?.title}</h2>
+        <img src={book?.image_url} alt={book?.title} />
+      </div>
+      <div className="book-poster">
+        <h2>Description</h2>
+        <p>{book?.description}</p>
+        <h2>Author</h2>
+        <p>{book?.authors}</p>
+        <h2>Genres</h2>
+        <p>{book?.genres}</p>
+        <Link to="/">
+          <button>Back</button>
+        </Link>
+      </div>
     </div>
-    <div className='book-poster'>
-      <h2>Description</h2>
-      <p>{book?.description}</p>
-      <h2>Author</h2>
-      <p>{book?.authors}</p>
-      <h2>Genres</h2>
-      <p>{book?.genres}</p>
-    </div>
-  </div>;
+  );
 };
 
 export default BookDetails;
